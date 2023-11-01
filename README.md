@@ -34,12 +34,18 @@ python GBD_S+P.py --dataset yahooR3
 - For dataset Coat:
 
 ```shell
+# selection bias:
 python GBD_S.py --dataset coat
+#selection bias and popularity bias:
+python GBD_S+P.py --dataset coat
 ```
 
 - For dataset Simulation:
 
 ```shell
+#selection bias:
 python GBD_S.py --dataset simulation
+#selection bias and position bias:
+python GBD_S+Pos.py --dataset simulation
 ```
 
