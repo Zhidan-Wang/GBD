@@ -10,55 +10,36 @@ We further present its universality by subsuming the representative biases and t
 ## 2. Overall framework
 <img src='https://user-images.githubusercontent.com/31196524/151699502-ac6b2484-274e-4074-8ee9-9bbe43cf69af.png' width="80%">
 
-## 3. Runtime Environment
+## # Environment Requirement
 
-* System:Linux dell-PowerEdge-R730
+The code runs well under python 3.8.5. The required packages are as follows:
 
-* CPU: Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz
-
-* CPU-Memory:25G
-
-* GPU:NVIDIA Corporation GV100 [TITAN V] (rev a1)
-
-* GPU-Memory:12G
-
-* Pytorch: 1.7.0
-
-* CUDA:10.1
+- pytorch == 1.4.0
+- numpy == 1.19.1
+- scipy == 1.5.2
+- pandas == 1.1.3
+- cppimport == 20.8.4.2
 
 ## 4. Usage
-### 4.1 Run ADS_S, ADS_Pos (selection bias/ position bias)
-Go the ads/ directory and run the following command:
 
 - For dataset Yahoo!R3:
-
+  
 ```shell
-python ADS_S.py --dataset yahooR3
+# selection bias:
+python GBD_S.py --dataset yahooR3
+#selection bias and popularity bias:
+python GBD_S+P.py --dataset yahooR3
 ```
 
 - For dataset Coat:
 
 ```shell
-python ADS_S.py --dataset coat
+python GBD_S.py --dataset coat
 ```
 
 - For dataset Simulation:
 
 ```shell
-python ADS_Pos.py --dataset simulation
-```
-### 4.2 Run ADS_P (popularity)
-Go the ads_p/ directory 
-
-(1) Configure some training parameters through the **test.yaml**.
-
-```shell
-Set **mode = 1**, **norm = 1e-4**.
-```
-
-(2) Run the following command:
-
-```shell
-python run_recbole.py --dataset ml-1m --model BPR --config_files test.yaml
+python GBD_S.py --dataset simulation
 ```
 
